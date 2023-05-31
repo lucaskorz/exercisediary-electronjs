@@ -16,10 +16,22 @@
       <label for="password">Password</label>
       <input type="password" id="password" placeholder="Enter your password">
 
-      <button type="submit">Log in</button>
+      <button id="tstr" type="submit">Log in</button>
     </form>
   </div>
 
-  <script src="login.js"></script>
+  <script>
+    document.getElementById('tstr').addEventListener('click', function(event) {
+      console.log('oi ')
+    });
+
+    document.getElementById('login-form').addEventListener('submit', function(event) {
+      console.log('oi ')
+      event.preventDefault();
+
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+    });
+  </script>
 </body>
 </html>
