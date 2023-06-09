@@ -5,9 +5,17 @@ function createWindow() {
   const mainWindow = new BrowserWindow({
     width: 800,
     height: 600,
+    fullscreen: true, // Define a janela para abrir em tela cheia
+    webPreferences: {
+      nodeIntegration: true
+    }
   });
 
   mainWindow.loadFile('src/pages/login/index.html');
+
+  mainWindow.on('closed', () => {
+    win = null;
+  });
 }
 
 app.whenReady().then(() => {
@@ -22,9 +30,6 @@ app.on('window-all-closed', function () {
   if (process.platform !== 'darwin') app.quit();
 });
 
-ipcMain.on('show-error-dialog', (event, errorMessage) => {
-  dialog.showErrorDialog('Erro', errorMessage);
-});
 
 
 

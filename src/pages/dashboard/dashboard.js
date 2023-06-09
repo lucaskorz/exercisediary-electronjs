@@ -1,11 +1,17 @@
-import { authenticateUser } from './auth.js'
-
-document.getElementById('login-form').addEventListener('submit', function(event) {
-  console.info('entrou')
+document.getElementById('view-exercises-btn').addEventListener('click', function(event) {
   event.preventDefault();
 
-  const username = document.getElementById('email').value;
-  const password = document.getElementById('password').value;
+  window.location.assign('../list/index.html');
+});
 
-  authenticateUser(username, password);
+document.getElementById('create-exercise-btn').addEventListener('click', function(event) {
+  event.preventDefault();
+
+  window.location.assign('../save/index.html');
+});
+
+document.getElementById('logout-btn').addEventListener('click', function(event) {
+  event.preventDefault();
+
+  window.location.assign('../login/index.html');
 });
