@@ -9,29 +9,16 @@
   <div class="container">
     <h1>ExerciseDiary</h1>
     <h2>Registre seu progresso, alcance sua grandeza</h2>
-    <form id="login-form" >
-      <label for="username">Username</label>
-      <input type="text" id="username" placeholder="Enter your username">
+    <form id="login-form">
+      <label for="email">E-mail</label>
+      <input type="text" id="email" placeholder="Informe seu e-mail">
 
-      <label for="password">Password</label>
-      <input type="password" id="password" placeholder="Enter your password">
+      <label for="password">Senha</label>
+      <input type="password" id="password" placeholder="Informe sua senha">
 
-      <button id="tstr" type="submit">Log in</button>
+      <button type="submit">Entrar</button>
     </form>
   </div>
-
-  <script>
-    document.getElementById('tstr').addEventListener('click', function(event) {
-      console.log('oi ')
-    });
-
-    document.getElementById('login-form').addEventListener('submit', function(event) {
-      console.log('oi ')
-      event.preventDefault();
-
-      const username = document.getElementById('username').value;
-      const password = document.getElementById('password').value;
-    });
-  </script>
+  <script type="module" src="login.js"></script>
 </body>
 </html>
