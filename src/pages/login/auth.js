@@ -1,3 +1,5 @@
+const errorMessage = document.getElementById('errorMessage');
+
 export const authenticateUser = async (email, password) => {
   try {
     const response = await fetch('https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyDVi3kH0_20zBAU8ca_eQOVwW6uglaOvkg', {
@@ -13,7 +15,7 @@ export const authenticateUser = async (email, password) => {
     });
 
     if (!response.ok) {
-      alert('Usuário ou senha inválidos');
+      errorMessage.textContent = 'Usuário ou senha incorretos.';
     }
 
     const data = await response.json();
@@ -21,7 +23,7 @@ export const authenticateUser = async (email, password) => {
 
     if (accessToken) window.location.assign('../dashboard/index.html');
   } catch (error) {
-    alert('Erro', 'Usuário ou senha incorretos.');
+    errorMessage.textContent = 'Usuário ou senha incorretos.';
     window.location.reload();
   }
 };

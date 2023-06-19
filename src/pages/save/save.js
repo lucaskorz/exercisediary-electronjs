@@ -1,11 +1,35 @@
-import { authenticateUser } from './auth.js'
+document.getElementById('save').addEventListener('click', function () {
+  const nome = document.getElementById('nome').value;
+  const carga = document.getElementById('carga').value;
+  const repeticoes = document.getElementById('repeticoes').value;
+  const series = document.getElementById('series').value;
 
-document.getElementById('login-form').addEventListener('submit', function(event) {
-  console.info('entrou')
-  event.preventDefault();
+  if (!nome || !carga || !repeticoes || !series) {
+    alert('Todos os campos são obrigatórios.')
+    return;
+  }
 
-  const username = document.getElementById('email').value;
-  const password = document.getElementById('password').value;
+  const exerciseData = {
+    nome: nome,
+    carga: carga,
+    repeticoes: repeticoes,
+    series: series
+  };
 
-  authenticateUser(username, password);
-});
+  fetch('https://exercisediary-94461-default-rtdb.firebaseio.com/Exercises.json', {
+    method: 'POST',
+    body: JSON.stringify(exerciseData)
+  })
+    .then(response => {
+      if (response.ok) {
+        window.location.assign('../list/index.html');
+      } else {
+        alert('Falha ao salvar o exercício.');
+      }
+    })
+    .catch(error => alert(error));
+})
+
+document.getElementById('back').addEventListener('click', function() {
+  window.location.assign('../dashboard/index.html');
+})

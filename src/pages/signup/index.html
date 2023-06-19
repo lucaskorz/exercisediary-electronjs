@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cadastro de Usuário</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h1>Cadastro de Usuário</h1>
+
+  <div class="form-group">
+    <label for="email">E-mail:</label>
+    <input type="email" id="email" placeholder="Digite seu e-mail" required>
+  </div>
+
+  <div class="form-group">
+    <label for="password">Senha:</label>
+    <input type="password" id="password" placeholder="Digite sua senha" required>
+  </div>
+
+  <button style="width: 100%;" id="saveBtn">Cadastrar</button>
+  <button style="width: 100%; margin-top: 10px;" id="backToLogin">Voltar pro login</button>
+
+  <p class="message" id="errorMessage"></p>
+
+  <script type="module" src="signup.js"></script>
+</body>
+</html>

@@ -3,15 +3,28 @@
   "version": "1.0.0",
   "description": "Projeto Faculdade",
   "main": "src/main.js",
-  "scripts": {
-    "start": "electron .",
-    "build": "babel src --out-dir dist"
-  },
   "author": "Lucas Korz",
   "license": "ISC",
-  "dependencies": {
-    "electron": "^25.0.0"
+  "scripts": {
+    "start": "electron .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
   },
-  "devDependencies": {},
+  "build": {
+    "appId": "com.example.app",
+    "directories": {
+      "output": "dist"
+    },
+    "mac": {
+      "target": "dmg"
+    },
+    "win": {
+      "target": "nsis"
+    }
+  },
+  "devDependencies": {
+    "electron": "^25.1.1",
+    "electron-builder": "^24.4.0"
+  },
   "keywords": []
 }
